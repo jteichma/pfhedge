@@ -14,6 +14,7 @@ from torch.distributions.utils import broadcast_all
 import pfhedge.autogreek as autogreek
 from pfhedge._utils.typing import TensorOrScalar
 
+DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 def european_payoff(input: Tensor, call: bool = True, strike: float = 1.0) -> Tensor:
     """Returns the payoff of a European option.
